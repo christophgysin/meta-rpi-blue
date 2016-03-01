@@ -12,9 +12,9 @@ except ImportError:
 
 def dbus2py(obj):
     if isinstance(obj, dbus.Array):
-        return list(obj)
+        return [dbus2py(e) for e in obj]
     if isinstance(obj, dbus.Dictionary):
-        return dict(obj)
+        return {(k, dbus2py(v)) for k, v in obj.items()}
     if isinstance(obj, dbus.String):
         return str(obj)
     if isinstance(obj, dbus.Boolean):
