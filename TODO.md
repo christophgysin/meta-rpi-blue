@@ -7,9 +7,10 @@ smart config?
 # bluetoothctl
 connect
 
+pulseaudio-system SEGV on disconnect
+
 bluetoothe-monitor.py
 ->  python-dbus
     python-pygobject
-
 
 alsa/opus/ortp/trx
