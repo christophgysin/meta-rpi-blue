@@ -18,3 +18,15 @@ load-module module-zeroconf-publish
 EOF
 }
 
+ROOTFS_POSTPROCESS_COMMAND_append += "add_smart_channels; "
+add_smart_channels() {
+    hostname=ezekiel
+    archs=(
+        all
+        arm1176jzfshf_vfp
+        raspberrypi
+    )
+    for arch in "${archs[@]}"; do
+        smart channel -y --add $arch type=rpm-md baseurl=http://$hostname/rpm/$arch
+    done
+}
