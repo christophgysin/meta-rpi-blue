@@ -13,6 +13,7 @@ inherit distutils
 
 RPROVIDES_${PN} = "bluetrust"
 
+RDEPENDS_${PN} += "bluez5"
 RDEPENDS_${PN} += "python-core"
 RDEPENDS_${PN} += "python-dbus"
 RDEPENDS_${PN} += "python-pygobject"
