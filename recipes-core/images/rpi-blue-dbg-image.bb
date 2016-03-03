@@ -20,8 +20,14 @@ EOF
 
 ROOTFS_POSTPROCESS_COMMAND_append += "add_smart_channels; "
 add_smart_channels() {
-    hostname=ezekiel
+    baseurl="http://${HOSTNAME}/rpm"
+
     for arch in "all" "arm1176jzfshf_vfp" "raspberrypi"; do
-        smart channel -y --add $arch type=rpm-md baseurl=http://$hostname/rpm/$arch
+        smart channel -y \
+            --data-dir "${IMAGE_ROOTFS}"/var/lib/smart \
+            --add \
+                "$arch" \
+                type="rpm-md" \
+                baseurl="${baseurl}/$arch"
     done
 }
