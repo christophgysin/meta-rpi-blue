@@ -16,3 +16,14 @@ RDEPENDS_${PN} += "python-core"
 RDEPENDS_${PN} += "python-dbus"
 RDEPENDS_${PN} += "python-pygobject"
 RDEPENDS_${PN} += "python-twisted-web"
+
+do_install_append() {
+    install -D -m 644 "${S}/${PN}.service" \
+        "${D}${systemd_system_unitdir}/${PN}.service"
+    install -D -m 644 "${S}/${PN}.socket" \
+        "${D}${systemd_system_unitdir}/${PN}.socket"
+}
+
+inherit systemd
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVICE_${PN} = "${PN}.socket"
