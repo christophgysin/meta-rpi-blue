@@ -11,8 +11,6 @@ LIC_FILES_CHKSUM = "file://${S}/COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 inherit distutils
 
-RPROVIDES_${PN} = "bluetrust"
-
 RDEPENDS_${PN} += "bluez5"
 RDEPENDS_${PN} += "python-core"
 RDEPENDS_${PN} += "python-dbus"
