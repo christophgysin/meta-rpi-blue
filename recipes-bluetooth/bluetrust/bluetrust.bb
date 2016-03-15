@@ -4,6 +4,7 @@ SUMMARY = "Webinterface to trust bluetooth devices"
 SRC_URI = "git://github.com/christophgysin/bluetrust.git;protocol=https"
 
 SRCREV = "${AUTOREV}"
+PV = "0.${SRCPV}"
 S = "${WORKDIR}/git"
 
 LICENSE = "GPLv2"
